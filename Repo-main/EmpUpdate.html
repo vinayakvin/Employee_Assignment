@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" 
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee Management System</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+</head>
+<body onload="getEmp()">
+	<div class="container">
+		<h2>Update</h2>
+		<hr>
+
+		<form action="#" 
+			method="POST">
+			<input type="text" 
+				placeholder="ID" class="form-control mb-4 col-4">
+				
+				<input type="id" 
+				placeholder="Employee First Name" class="form-control mb-4 col-4">
+				
+				<input type="text" 
+				placeholder="Last name" class="form-control mb-4 col-4">
+				
+				<input type="text" 
+				placeholder="Employement ID" class="form-control mb-4 col-4">
+				<input type="text" 
+				placeholder="Start Date" class="form-control mb-4 col-4">
+				<input type="text" 
+				placeholder="Designation" class="form-control mb-4 col-4">
+				<input type="text" 
+				placeholder="Department" class="form-control mb-4 col-4">
+				<input type="text" 
+				placeholder="End Date" class="form-control mb-4 col-4">
+				<input type="text" 
+				placeholder="DOB" class="form-control mb-4 col-4">
+				<input type="text" 
+				placeholder="Status" class="form-control mb-4 col-4">
+				<input type="text" 
+				placeholder="Reporting Manager" class="form-control mb-4 col-4">
+				<input type="text" 
+				placeholder="Gender" class="form-control mb-4 col-4">
+				<input type="text" 
+				placeholder="Blood Group" class="form-control mb-4 col-4"> 
+				<input type="text" 
+				placeholder="Address" class="form-control mb-4 col-4">
+				
+				<button type="submit" class="btn btn-info col-2" onclick=""> SAVE</button><br><br>
+				<input type="button" value="Back" class="btn btn-info col-2" onclick="window.location.href='new_employee.html';">
+		</form>
+		
+		<hr>
+		
+		<a href = "@{/}"> Back to Employee List</a>
+	</div>
+	<script>
+		function getEmp() {
+		let http= new XMLHttpRequest();
+	
+	
+		//decrypting using same key
+		var id= localStorage.getItem("data")^658;
+		console.log(id);
+	
+			if(id==null || id=="")
+			{
+				alert("Please Enter Id for retreive");
+				return;
+			}
+	
+			var url="http://localhost:8080/findemp";
+			http.open('GET', url, true);
+	
+			//Send the proper header information along with the request
+			http.setRequestHeader( 'Access-Control-Allow-Origin', '*');
+			http.setRequestHeader('Content-type', 'application/json');
+			http.setRequestHeader("id",id);
+	
+	
+			
+			http.onreadystatechange = function() {//Call a function when the state changes.
+				if( http.readyState == 4 && (http.status == 200 || http.status==400) ){
+					if(http.status==400)
+					{
+						alert("Employee not found");
+						return;
+					}
+	
+
+					var data=JSON.parse(http.response);
+					
+					document.getElementById("ID").innerHTML=data.id;
+					document.getElementById("firstName").innerHTML=data.firstname;
+					document.getElementById("lastName").innerHTML=data.lastname;
+					document.getElementById("EmpID").innerHTML= data.employeeid;
+					document.getElementById("start").innerHTML=data.startdate ;
+					document.getElementById("designation").innerHTML=data.designation;
+					document.getElementById("department").innerHTML= data.departement;
+					document.getElementById("end").innerHTML= data.enddate;
+					document.getElementById("dob").innerHTML=data.dob;
+					document.getElementById("status").innerHTML=data.status;
+					document.getElementById("reporting").innerHTML=data.reportingmanager;
+					document.getElementById("gender").innerHTML=data.gender;
+					document.getElementById("blood").innerHTML=data.blood;
+					document.getElementById("address").innerHTML=data.address;
+					console.log(data.id);
+
+				}
+			}
+
+			http.send();
+	
+	
+		  //document.getElementById("demo").innerHTML = x;
+		  //alert(data.departement);	
+		}
+		  
+		  
+		  
+	
+		// function CreateEmp() {
+	
+	
+		// }
+		</script>
+</body>
+</html>

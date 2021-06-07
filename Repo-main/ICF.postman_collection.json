@@ -1,0 +1,113 @@
+{
+	"variables": [],
+	"info": {
+		"name": "ICF",
+		"_postman_id": "af1278fc-4689-32ea-6cbf-0f4dd0a4dd77",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/addemp",
+			"request": {
+				"url": "localhost:8080/updateemp",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "id",
+						"value": "123",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"147\",\n    \"firstname\": \"Steve\",\n    \"lastname\": \"Rogers\",\n    \"employeeid\": null,\n    \"startdate\": \"2015-02-12\",\n    \"designation\": \"developer\",\n    \"departement\": \"GlobalTech\",\n    \"enddate\": null,\n    \"status\": \"working\",\n    \"dob\": \"1994-12-25\",\n    \"reportingmanager\": \"Thor\",\n    \"gender\": \"M\",\n    \"bloodgroup\": \"b+ve\",\n    \"address\": \"stark towers\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/findemp",
+			"request": {
+				"url": "localhost:8080/findemp",
+				"method": "GET",
+				"header": [
+					{
+						"key": "id",
+						"value": "125",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"124\",\n    \"firstname\": \"John\",\n    \"lastname\": \"Wick\",\n    \"employeeId\": \"456\",\n    \"startDate\": null,\n    \"designation\": \"developer\",\n    \"departement\": \"GlobalTech\",\n    \"enddate\": null,\n    \"status\": \"working\",\n    \"dob\": \"1994-12-25\",\n    \"reportingManager\": null,\n    \"gender\": \"M\",\n    \"bloodgroup\": \"b+ve\",\n    \"address\": \"stark towers\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/addemp",
+			"request": {
+				"url": "localhost:8080/addemp",
+				"method": "POST",
+				"header": [
+					{
+						"key": "id",
+						"value": "123",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"124\",\n    \"firstname\": \"John\",\n    \"lastname\": \"Wick\",\n    \"employeeId\": \"456\",\n    \"startDate\": null,\n    \"designation\": \"developer\",\n    \"departement\": \"GlobalTech\",\n    \"enddate\": null,\n    \"status\": \"working\",\n    \"dob\": \"1994-12-25\",\n    \"reportingManager\": null,\n    \"gender\": \"M\",\n    \"bloodgroup\": \"b+ve\",\n    \"address\": \"stark towers\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/deleteemp",
+			"request": {
+				"url": "localhost:8080/deleteemp",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "id",
+						"value": "147",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"124\",\n    \"firstname\": \"John\",\n    \"lastname\": \"Wick\",\n    \"employeeId\": \"456\",\n    \"startDate\": null,\n    \"designation\": \"developer\",\n    \"departement\": \"GlobalTech\",\n    \"enddate\": null,\n    \"status\": \"working\",\n    \"dob\": \"1994-12-25\",\n    \"reportingManager\": null,\n    \"gender\": \"M\",\n    \"bloodgroup\": \"b+ve\",\n    \"address\": \"stark towers\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
